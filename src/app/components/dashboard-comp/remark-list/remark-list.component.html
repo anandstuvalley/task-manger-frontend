@@ -1,0 +1,42 @@
+<div class="container mt-4" *ngIf="task">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Task Details</h5>
+
+            <p><strong>Title:</strong> {{ task.title }}</p>
+            <p><strong>Description:</strong> {{ task.description }}</p>
+            <p><strong>Website:</strong> <a [href]="task.website" target="_blank">{{ task.website }}</a></p>
+            <p><strong>Comment:</strong> {{ task.comment }}</p>
+            <p><strong>Status:</strong> {{ task.status }}</p>
+            <p><strong>Message:</strong> {{ task.message }}</p>
+
+            <p *ngIf="task.material">
+                <strong>Material File:</strong>
+                <a [href]="task.material" target="_blank" class="btn btn-sm btn-outline-primary ms-2">
+                    View Material
+                </a>
+            </p>
+
+            <p *ngIf="task.completeFile">
+                <strong>Completed File:</strong>
+                <a [href]="task.completeFile" target="_blank" class="btn btn-sm btn-outline-success ms-2">
+                    View Completed File
+                </a>
+            </p>
+
+            <hr />
+
+            <p><strong>Assigned To:</strong> {{ task.responsible?.name }} ({{ task.responsible?.email }})</p>
+            <p><strong>Created By:</strong> {{ task.createdBy?.name }} ({{ task.createdBy?.email }})</p>
+
+            <p><small class="text-muted">Created At: {{ task.createdAt | date:'medium' }}</small></p>
+            <p><small class="text-muted">Updated At: {{ task.updatedAt | date:'medium' }}</small></p>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!task" class="text-center mt-5">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>

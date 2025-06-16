@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <div class="card p-3 shadow-sm">
+        <h5 class="mb-1">Add Requirement</h5>
+
+
+        <form [formGroup]="requirementForm" (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+                <div class="col-12">
+                    <label class="form-label">Requirement Title <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter Requirement Title"
+                        formControlName="requirementTitle">
+                </div>
+
+
+                <div class="col-12">
+                    <label class="form-label">Requirement Message <span class="text-danger">*</span></label>
+                    <textarea formControlName="requirementMessage" class="form-control" rows="8"
+                        placeholder="Please enter Requirement Message"></textarea>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="text-end mt-4">
+                <button type="submit" class="btn btn-success">
+                    Submit <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="container mt-4">
+  <div class="card p-3 shadow-sm">
+    <h5 class="mb-1">Assign Task</h5>
+    <p class="text-muted mb-4">Fill all information below</p>
+
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <div class="row g-3">
+        <div class="col-12">
+          <label class="form-label">Task Title <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Enter Task title" formControlName="title">
+        </div>
+        <div class="col-md-12">
+          <label class="form-label">Websites <span class="text-danger">*</span></label>
+          <select formControlName="website" class="form-control">
+            <option value="">Select</option>
+            <option value="https://prayug.com/">Prayug</option>
+            <option value="https://www.sudakshta.com/">Sudakshta</option>
+            <option value="https://navrojan.com/">Navrojan</option>
+            <option value="https://resumeocean.com/">Resumeocean</option>
+            <option value="https://www.vidyapun.com/">Vidyapun</option>
+            <option value="prayug.com">Stuintern</option>
+            <option value="prayug.com">Anusharm</option>
+
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Requirement Description <span class="text-danger">*</span></label>
+              <textarea formControlName="description" class="form-control" rows="8" placeholder="Please enter comment"></textarea>
+        </div>
+
+    <div class="col-md-12">
+  <label class="form-label">Material File</label>
+
+  <div
+    class="border border-dashed rounded-3 text-center p-5 my-2 position-relative"
+    style="border-style: dashed; cursor: pointer;"
+    (click)="triggerFileInput(fileInput)"
+  >
+    <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
+    <h5 class="fw-semibold mb-1">Drop files here or click to upload.</h5>
+    <p class="text-muted small mb-0">
+      (This is just a demo dropzone. Selected files are <em>not</em> actually uploaded.)
+    </p>
+    <input #fileInput type="file" class="d-none" (change)="onFileSelected($event)" />
+  </div>
+
+  <div *ngIf="uploadedFile" class="mt-2 text-muted">
+    Selected: {{ uploadedFile.name }}
+  </div>
+</div>
+
+        <div class="col-md-12">
+          <label class="form-label">Responsible Member</label>
+          <select formControlName="responsible" class="form-control">
+            <option value="">Select</option>
+            <option *ngFor="let item of userList" [value]="item._id">{{item?.email}}</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label class="form-label">Comment</label>
+          <textarea formControlName="comment" class="form-control" rows="3" placeholder="Please enter comment"></textarea>
+        </div>
+      </div>
+
+      <div class="text-end mt-4">
+        <button type="submit" class="btn btn-success">
+          Submit <i class="fas fa-arrow-right ms-2"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

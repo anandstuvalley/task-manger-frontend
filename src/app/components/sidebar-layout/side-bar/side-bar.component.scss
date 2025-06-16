@@ -1,0 +1,51 @@
+#wrapper {
+  min-height: 100vh;
+    overflow: hidden;
+}
+
+.sidebar {
+  width: 240px;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+}
+
+
+/* Add to dashboard.component.css */
+.sidebar {
+  width: 240px;
+  transition: all 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidebar.collapsed {
+  margin-left: -240px;
+}
+
+.flex-grow-1 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 999;
+    height: 100vh;
+    background: #fff;
+  }
+
+  .sidebar.collapsed {
+    left: -240px;
+  }
+}
+
+.container-fluid {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}

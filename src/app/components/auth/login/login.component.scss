@@ -1,0 +1,44 @@
+.login-page {
+  background: #f8f9fa;
+}
+
+.login-left {
+  background: url('https://coderthemes.com/minton/layouts/default/assets/images/bg-auth.jpg') no-repeat center center;
+  background-size: cover;
+  flex: 1;
+}
+
+.login-form {
+  flex: 1;
+  max-width: 480px;
+  margin: auto;
+}
+
+.quote-text {
+  font-style: italic;
+  font-size: 1rem;
+  max-width: 80%;
+  line-height: 1.6;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #aaa;
+}
+
+.social-icon {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+  background-color: #f0f0f0;
+}

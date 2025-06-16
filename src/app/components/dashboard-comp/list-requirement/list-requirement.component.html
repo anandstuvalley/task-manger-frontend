@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h4 class="mb-3">My Requirements</h4>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Message</th>
+        <th>Created At</th>
+        <th *ngIf="role !=='user'">User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of requirements; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ req.requirementTitle }}</td>
+        <td>{{ req.requirementMessage }}</td>
+        <td>{{ req.createdAt | date: 'short' }}</td>
+        <td *ngIf="role !=='user'">{{req?.userId.name}} </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="requirements.length === 0" class="alert alert-info">
+    No requirements found.
+  </div>
+</div>
