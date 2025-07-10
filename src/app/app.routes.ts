@@ -13,9 +13,11 @@ import { AddRemarkComponent } from './components/dashboard-comp/add-remark/add-r
 import { RemarkListComponent } from './components/dashboard-comp/remark-list/remark-list.component';
 import { AddRequirementComponent } from './components/dashboard-comp/add-requirement/add-requirement.component';
 import { ListRequirementComponent } from './components/dashboard-comp/list-requirement/list-requirement.component';
+import { RequirementReplyComponent } from './components/dashboard-comp/requirement-reply/requirement-reply.component';
+import { RequirementChatComponent } from './components/dashboard-comp/requirement-chat/requirement-chat.component';
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent , canActivate: [LoginGuard]},
+  { path: '', component: LoginComponent, canActivate: [LoginGuard] },
   {
     path: 'dashboard',
     component: SideBarComponent,
@@ -38,43 +40,55 @@ export const routes: Routes = [
         data: { roles: ['admin', 'coadmin', 'user'] },
       },
       {
-        path:"user-list",
-        component:UserListComponent,
+        path: 'user-list',
+        component: UserListComponent,
         canActivate: [RoleGuard],
         data: { roles: ['admin', 'coadmin'] },
       },
-       {
-        path:"add-user",
-        component:RegisterComponent,
+      {
+        path: 'add-user',
+        component: RegisterComponent,
         canActivate: [RoleGuard],
         data: { roles: ['admin', 'coadmin'] },
       },
 
       {
-        path:"add-remark/:id",
-        component:AddRemarkComponent,
-        canActivate:[RoleGuard],
+        path: 'add-remark/:id',
+        component: AddRemarkComponent,
+        canActivate: [RoleGuard],
         data: { roles: ['user'] },
       },
       {
-        path:"remark-list/:id",
-        component:RemarkListComponent,
-        canActivate:[RoleGuard],
-        data: { roles: ['user','admin', 'coadmin'] },
+        path: 'remark-list/:id',
+        component: RemarkListComponent,
+        canActivate: [RoleGuard],
+        data: { roles: ['user', 'admin', 'coadmin'] },
       },
 
       {
-        path:"add-requirements",
-        component:AddRequirementComponent,
-        canActivate:[RoleGuard],
+        path: 'add-requirements',
+        component: AddRequirementComponent,
+        canActivate: [RoleGuard],
         data: { roles: ['user'] },
       },
 
-        {
-        path:"requirements-list",
-        component:ListRequirementComponent,
-        canActivate:[RoleGuard],
-        data: { roles: ['user','admin', 'coadmin'] },
+      {
+        path: 'requirements-list',
+        component: ListRequirementComponent,
+        canActivate: [RoleGuard],
+        data: { roles: ['user', 'admin', 'coadmin'] },
+      },
+      {
+        path: 'requirement-reply/:id',
+        component: RequirementReplyComponent,
+        canActivate: [RoleGuard],
+        data: { roles: ['user', 'admin', 'coadmin'] },
+      },
+      {
+        path: 'requirement-chat/:id',
+        component: RequirementChatComponent,
+        canActivate: [RoleGuard],
+        data: { roles: ['user', 'admin', 'coadmin'] },
       },
     ],
   },

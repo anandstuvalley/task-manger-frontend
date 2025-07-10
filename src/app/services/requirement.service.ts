@@ -4,11 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RequirementService {
-
-   private apiUrl = 'https://api.prayug.co.in/api/requirements'; // Adjust if needed
+  // private apiUrl = 'https://api.prayug.co.in/api/requirements';
+  private apiUrl = 'http://localhost:5000/api/requirements';
 
   constructor(private http: HttpClient, private auth: AuthService) {}
 
@@ -32,5 +32,7 @@ export class RequirementService {
     return this.http.get(`${this.apiUrl}`);
   }
 
-
+  addReply(id: string, data: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, data);
+  }
 }

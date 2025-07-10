@@ -1,6 +1,6 @@
 <div class="container mt-4">
   <div class="card p-3 shadow-sm">
-    <h5 class="mb-1">Assign Task</h5>
+    <h5 class="mb-1">Requirements Reply</h5>
     <p class="text-muted mb-4">Fill all information below</p>
 
     <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
@@ -13,10 +13,11 @@
             type="text"
             class="form-control"
             placeholder="Enter Task title"
-            formControlName="title"
+            readonly
+            [value]="formData?.requirementTitle"
           />
         </div>
-        <div class="col-md-12">
+        <!-- <div class="col-md-12">
           <label class="form-label"
             >Websites <span class="text-danger">*</span></label
           >
@@ -30,17 +31,35 @@
             <option value="prayug.com">Stuintern</option>
             <option value="prayug.com">Anusharm</option>
           </select>
+        </div> -->
+        <!-- <div class="col-md-12">
+          <label class="form-label">Responsible Member</label>
+          <select
+            [disabled]="true"
+            formControlName="responsible"
+            class="form-control"
+          >
+            <option>
+              {{ formData?.userId?.name }}
+            </option>
+          </select>
+        </div> -->
+        <div style="cursor: default">
+          <label class="form-label">Responsible Member</label>
+          <div class="form-control bg-light">
+            {{ formData?.userId?.name || "No member assigned" }}
+          </div>
         </div>
-
         <div class="col-12">
           <label class="form-label"
             >Requirement Description <span class="text-danger">*</span></label
           >
           <textarea
-            formControlName="description"
             class="form-control"
             rows="8"
             placeholder="Please enter comment"
+            readonly
+            [value]="formData?.requirementMessage"
           ></textarea>
         </div>
 
@@ -73,30 +92,34 @@
           </div>
         </div>
 
-        <div class="col-md-12">
-          <label class="form-label">Responsible Member</label>
-          <select formControlName="responsible" class="form-control">
-            <option value="">Select</option>
-            <option *ngFor="let item of userList" [value]="item._id">
-              {{ item?.name }}
-            </option>
-          </select>
-        </div>
-
         <div class="col-12">
           <label class="form-label">Comment</label>
           <textarea
-            formControlName="comment"
+            formControlName="replyComment"
             class="form-control"
             rows="3"
             placeholder="Please enter comment"
           ></textarea>
         </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Date</label>
+          <input type="date" class="form-control" formControlName="date" />
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Status</label>
+          <select class="form-control" formControlName="status">
+            <option value="">Select Status</option>
+            <option value="">Pending</option>
+            <option value="">In-prograss</option>
+            <option value="">Completed</option>
+          </select>
+        </div>
       </div>
 
       <div class="text-end mt-4">
         <button type="submit" class="btn btn-success">
-          Submit <i class="fas fa-arrow-right ms-2"></i>
+          Send Reply <i class="fas fa-arrow-right ms-2"></i>
         </button>
       </div>
     </form>

@@ -13,7 +13,7 @@ import { AuthService } from '../../../services/auth.service';
 export class ListRequirementComponent implements OnInit {
   requirements: any[] = [];
   userId: string = '';
-  role:string=""
+  role: string = '';
 
   constructor(
     private requirementService: RequirementService,
@@ -21,10 +21,10 @@ export class ListRequirementComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.role=this.authService.getRole()
+    this.role = this.authService.getRole();
     this.userId = this.authService.getByeId();
-    
-    if (this.role==='user') {
+
+    if (this.role === 'user') {
       this.fetchRequirementsByUser();
     } else {
       this.fetchRequirementsAll();
@@ -35,6 +35,7 @@ export class ListRequirementComponent implements OnInit {
     this.requirementService.getRequirementsByUserId(this.userId).subscribe({
       next: (res) => {
         this.requirements = res;
+        console.log(this.requirements);
       },
       error: (err) => {
         console.error('Error fetching requirements:', err);
@@ -45,6 +46,7 @@ export class ListRequirementComponent implements OnInit {
     this.requirementService.getAllRequirements().subscribe({
       next: (res) => {
         this.requirements = res;
+        console.log(this.requirements);
       },
       error: (err) => {
         console.error('Error fetching requirements:', err);

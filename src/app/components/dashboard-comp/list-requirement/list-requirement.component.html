@@ -8,7 +8,8 @@
         <th>Title</th>
         <th>Message</th>
         <th>Created At</th>
-        <th *ngIf="role !=='user'">User</th>
+        <th *ngIf="role !== 'user'">User</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -16,8 +17,20 @@
         <td>{{ i + 1 }}</td>
         <td>{{ req.requirementTitle }}</td>
         <td>{{ req.requirementMessage }}</td>
-        <td>{{ req.createdAt | date: 'short' }}</td>
-        <td *ngIf="role !=='user'">{{req?.userId.name}} </td>
+        <td>{{ req.createdAt | date : "short" }}</td>
+        <td *ngIf="role !== 'user'">{{ req?.userId.name }}</td>
+        <td>
+          <a
+            href="/dashboard/requirement-reply/{{ req._id }}"
+            class="btn-success btn"
+            >Reply</a
+          >
+          <a
+            href="/dashboard/requirement-chat/{{ req._id }}"
+            class="btn-primary btn mt-2"
+            >View</a
+          >
+        </td>
       </tr>
     </tbody>
   </table>

@@ -1,40 +1,64 @@
 <div class="list-group list-group-flush">
-
-  <a class="list-group-item list-group-item-action py-3" routerLink="/dashboard">
+  <a
+    class="list-group-item list-group-item-action py-3"
+    routerLink="/dashboard"
+  >
     <i class="fas fa-chart-line me-2"></i> Dashboards
   </a>
 
-   <a *ngIf="role === 'user'" class="list-group-item list-group-item-action py-2"
-    routerLink="/dashboard/add-requirements">
+  <a
+    *ngIf="role === 'user'"
+    class="list-group-item list-group-item-action py-2"
+    routerLink="/dashboard/add-requirements"
+  >
     <i class="fas fa-plus me-2"></i> Add Requirements
   </a>
 
-   <a  class="list-group-item list-group-item-action py-2"
-    routerLink="/dashboard/requirements-list">
-    <i class="fas fa-plus me-2"></i>  Requirements List
+  <a
+    class="list-group-item list-group-item-action py-2"
+    routerLink="/dashboard/requirements-list"
+  >
+    <i class="fas fa-plus me-2"></i> Requirements List
   </a>
-
-  <a *ngIf="role === 'admin' || role === 'coadmin'" class="list-group-item list-group-item-action py-2"
-    routerLink="/dashboard/assign-task">
+  <!-- <a
+    *ngIf="role === 'admin' || role === 'coadmin'"
+    class="list-group-item list-group-item-action py-2"
+    routerLink="/dashboard/requirement-reply"
+  >
+    <i class="fas fa-plus me-2"></i> Requirements Reply
+  </a> -->
+  <a
+    *ngIf="role === 'admin' || role === 'coadmin'"
+    class="list-group-item list-group-item-action py-2"
+    routerLink="/dashboard/assign-task"
+  >
     <i class="fas fa-plus me-2"></i> Assign Task
   </a>
 
-  <a class="list-group-item list-group-item-action py-2" routerLink="/dashboard/task-list">
+  <a
+    class="list-group-item list-group-item-action py-2"
+    routerLink="/dashboard/task-list"
+  >
     <i class="fas fa-list-check me-2"></i> Task List
   </a>
 
-  <a *ngIf="role === 'admin' || role === 'coadmin'" class="list-group-item list-group-item-action py-2"
-    routerLink="/dashboard/user-list">
+  <a
+    *ngIf="role === 'admin' || role === 'coadmin'"
+    class="list-group-item list-group-item-action py-2"
+    routerLink="/dashboard/user-list"
+  >
     <i class="fas fa-users me-2"></i> User List
   </a>
 
-  <a *ngIf="role === 'admin' || role === 'coadmin'" class="list-group-item list-group-item-action py-2"
-    routerLink="/dashboard/add-user">
+  <a
+    *ngIf="role === 'admin' || role === 'coadmin'"
+    class="list-group-item list-group-item-action py-2"
+    routerLink="/dashboard/add-user"
+  >
     <i class="fas fa-user-plus me-2"></i> Add User
   </a>
 
   <a class="list-group-item list-group-item-action py-2" (click)="logout()">
     <i class="fas fa-sign-out-alt me-2"></i> Logout
   </a>
-
 </div>
